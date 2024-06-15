@@ -14,10 +14,10 @@ html {
 
 
 :root {
-  --color-primary: #6c63ff;
+  --color-primary: #6b63fff7;
   --color-success: #00bf8e;
   --color-warning: #f7c94b;
-  --color-danger: #f75842;
+  --color-danger: #f74242;
   --color-danger-variant: rgba(247, 88, 66, 0.4);
   --color-white: #fff;
   --color-light: rgba(255, 255, 255, 0.7);
@@ -137,6 +137,11 @@ nav {
   align-items: center;
 }
 
+.nav__logo-image {
+  width: 240px; /* Adjust the width as needed */
+  height: 100px; /* Maintain aspect ratio */
+}
+
 nav button {
   display: none;
 }
@@ -177,10 +182,17 @@ header {
   margin: 1rem 0 2.4rem;
 }
 
+.responsive-video {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  border-radius: 15px; /* Adjust the radius as needed */
+}
+
 /* =================== CATEGORIES ===================== */
 .categories {
   background: var(--color-bg1);
-  height: 32rem;
+  height: 48rem;
 }
 
 .categories h1 {
@@ -251,7 +263,7 @@ header {
 
 /* =================== POPULAR COURSES ===================== */
 .courses {
-  margin-top: 10rem;
+  margin-top: 5rem;
   text-align: center; /* Center the text */
 }
 
@@ -475,6 +487,7 @@ footer {
 .footer__container > div h4 {
   margin-bottom: 1.2rem;
 }
+
 
 .footer__1 p {
   margin: 0 0 2rem;
