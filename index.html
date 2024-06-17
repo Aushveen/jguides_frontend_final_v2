@@ -14,15 +14,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-
     <!-- SWIPER JS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
 
     <link rel="stylesheet" href="./css/style.css">
 
     <style>
         body { background-image: url("./images/bg-texture.png") }
+        .hidden {
+          opacity: 0;
+          transform: translateY(50px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -32,7 +39,7 @@
           <ul class="nav__menu">
                 <li><a href="index.html#">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#ebook">EBook</a></li>
+                <li><a href="index.html#ebook">J-Guide</a></li>
                 <li><a href="index.html#faq">FAQ</a></li>
                 <li><a href="index.html#testimonials">Testimonials</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -43,25 +50,17 @@
     </nav>
     <!--========================== END OF NAVBAR ============================-->
 
-
-
-
-
-
     <header>
         <div class="container header__container">
             <div class="header__left">
                 <h1>Your First Step to College Success</h1>
-                <p>
-
-                </p>
+                <p></p>
                 <a href="index.html#ebook" class="btn btn-primary">Buy Now</a>
             </div>
-            
             <div class="header__right">
               <div class="header__right-image">
                 <video class="responsive-video" controls>
-                  <source src="./videos/header.mp4" type="video/mp4">
+                  <source src="./videos/vid.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>               
               </div>
@@ -70,13 +69,7 @@
     </header>
     <!--========================== END OF HEADER ============================-->
 
-
-
-
-
-
-
-    <section id = "about" class="categories">
+    <section id="about" class="categories hidden">
         <div class="container categories__container">
           <div class="categories__left">
             <h1>About J-GUIDES</h1>
@@ -88,7 +81,7 @@
               the overwhelming feeling of having so much to learn in a new place. My guidebook is designed to alleviate
               that confusion, providing essential information and much more, all in one place.
             </p>
-            <a href="index.html#ebook" class="btn">Buy Ebook Now</a>
+            <a href="index.html#ebook" class="btn">Buy J-Guide Now</a>
           </div>
   
           <div class="categories__right">
@@ -145,25 +138,16 @@
       </section>
       <!--====================== END OF CATEGORIES =====================-->
 
-
-
-
-
-
-
-
-      <section id = "ebook" class="courses">
-          <h2>Our Popular Ebook</h2>
+      <section id="ebook" class="courses hidden">
+          <h2>IU J-Guide</h2>
           <div class="container courses__container">
             <article class="course">
                 <div class="course__image">
                     <img src="./images/IUEBook.PNG">
                 </div>
                 <div class="course__info">
-                    <h4>Indiana Ebook - $20.99</h4>
-                    <p>
-                        Some description about the ebook
-                    </p>
+                    <h4>Indiana J-Guide - $20.99</h4>
+                    <p>Some description about the J-Guide</p>
                     <button class="btn btn-primary" onclick="showPaymentModal()" style="width: 200px; height: 75px;">Buy Now</button>
                 </div>
             </article>
@@ -191,161 +175,47 @@
                 <button class="payButton">Checkout!</button>
                 <span class="close" onclick="hidePaymentModal()">X</span>
             </div>
-            <!--
-            <article class="course">
-                <div class="course__image">
-                    <img src="./images/course2.jpg">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive SmartHome Website Design</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aperiam deserunt eaque quos iure ad debitis.
-                    </p>
-                    <a href="course.html" class="btn btn-primary">Learn More</a>
-                </div>
-            </article>
-
-            <article class="course">
-                <div class="course__image">
-                    <img src="./images/course3.jpg">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive Admin Dashboard UI Design</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aperiam deserunt eaque quos iure ad debitis.
-                    </p>
-                    <a href="course.html" class="btn btn-primary">Learn More</a>
-                </div>
-            </article> -->
           </div>
-          
-          
       </section>
-
-
       <!--====================== END OF COURSES =====================-->
 
-
-
-
-
-
-
-
-
-      <section id = "faq" class="faqs">
+      <section id="faq" class="faqs hidden">
           <h2>Frequently Asked Questions</h2>
           <div class="container faqs__container">
               <article class="faq">
                   <div class="faq__icon"><i class="uil uil-plus"></i></div>
                   <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
+                      <h4>How do I know the right J-Guide for me?</h4>
+                      <p>Some text</p>
                   </div>
               </article>
-
               <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>How do I know the right ebook for me?</h4>
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
+                <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                <div class="question__answer">
+                    <h4>How do I know the right ebook for me?</h4>
+                    <p>Some text</p>
+                </div>
+            </article>
+            <article class="faq">
+              <div class="faq__icon"><i class="uil uil-plus"></i></div>
+              <div class="question__answer">
+                  <h4>How do I know the right ebook for me?</h4>
+                  <p>Some text</p>
+              </div>
+          </article>
+          <article class="faq">
+            <div class="faq__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right J-Guide for me?</h4>
+                <p>Some text</p>
+            </div>
+        </article>
+              <!-- Repeat FAQ items as needed -->
           </div>
       </section>
       <!--====================== END OF FAQs =====================-->
 
-
-
-
-
-
-
-      <section id = "testimonials" class="container testimonials__container mySwiper">
+      <section id="testimonials" class="container testimonials__container mySwiper hidden">
           <h2>Students' Testimonials</h2>
           <div class="swiper-wrapper">
               <article class="testimonial swiper-slide">
@@ -357,102 +227,78 @@
                       <small>Student</small>
                   </div>
                   <div class="testimonial__body">
-                      <p>
-                        Some text
-                      </p>
+                      <p>Some text</p>
                   </div>
               </article>
-
               <article class="testimonial swiper-slide">
-                  <div class="avatar">
-                      <img src="./images/avatar2.jpg">
-                  </div>
-                  <div class="testimonial__info">
-                      <h5>Ernest Achiever</h5>
-                      <small>Student</small>
-                  </div>
-                  <div class="testimonial__body">
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="testimonial swiper-slide">
-                  <div class="avatar">
-                      <img src="./images/avatar3.jpg">
-                  </div>
-                  <div class="testimonial__info">
-                      <h5>Edem Quist</h5>
-                      <small>Student</small>
-                  </div>
-                  <div class="testimonial__body">
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="testimonial swiper-slide">
-                  <div class="avatar">
-                      <img src="./images/avatar4.jpg">
-                  </div>
-                  <div class="testimonial__info">
-                      <h5>Hajia Bintu</h5>
-                      <small>Student</small>
-                  </div>
-                  <div class="testimonial__body">
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
-
-              <article class="testimonial swiper-slide">
-                  <div class="avatar">
-                      <img src="./images/avatar5.jpg">
-                  </div>
-                  <div class="testimonial__info">
-                      <h5>Jane Doe</h5>
-                      <small>Student</small>
-                  </div>
-                  <div class="testimonial__body">
-                      <p>
-                        Some text
-                      </p>
-                  </div>
-              </article>
+                <div class="avatar">
+                    <img src="./images/avatar1.jpg">
+                </div>
+                <div class="testimonial__info">
+                    <h5>Diana Ayi</h5>
+                    <small>Student</small>
+                </div>
+                <div class="testimonial__body">
+                    <p>Some text</p>
+                </div>
+            </article>
+            <article class="testimonial swiper-slide">
+              <div class="avatar">
+                  <img src="./images/avatar1.jpg">
+              </div>
+              <div class="testimonial__info">
+                  <h5>Diana Ayi</h5>
+                  <small>Student</small>
+              </div>
+              <div class="testimonial__body">
+                  <p>Some text</p>
+              </div>
+          </article>
+          <article class="testimonial swiper-slide">
+            <div class="avatar">
+                <img src="./images/avatar1.jpg">
+            </div>
+            <div class="testimonial__info">
+                <h5>Diana Ayi</h5>
+                <small>Student</small>
+            </div>
+            <div class="testimonial__body">
+                <p>Some text</p>
+            </div>
+        </article>
+        <article class="testimonial swiper-slide">
+          <div class="avatar">
+              <img src="./images/avatar1.jpg">
+          </div>
+          <div class="testimonial__info">
+              <h5>Diana Ayi</h5>
+              <small>Student</small>
+          </div>
+          <div class="testimonial__body">
+              <p>Some text</p>
+          </div>
+      </article>
+              <!-- Repeat testimonials as needed -->
           </div>
           <div class="swiper-pagination"></div>
       </section>
       <!--====================== END OF TESTIMONIALS =====================-->
 
-
-
-
-
-
-
-
       <footer>
         <div class="container footer__container">
           <div class="footer__1">
             <a href="index.html#" class="footer__logo"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="footer__logo-image"></a>
-            <p>
-
-            </p>
+            <p></p>
           </div>
-  
           <div class="footer__2">
             <h4>Quick Links</h4>
             <ul class="permalinks">
               <li><a href="index.html#">Home</a></li>
               <li><a href="index.html#about">About</a></li>
-              <li><a href="index.html#ebook">Ebook</a></li>
+              <li><a href="index.html#ebook">J-Guide</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
-  
           <div class="footer__3">
             <h4>Privacy</h4>
             <ul class="privacy">
@@ -461,27 +307,17 @@
               <li><a href="#">Refund Policy</a></li>
             </ul>
           </div>
-  
           <div class="footer__4">
             <h4>Contact Us</h4>
             <div>
               <p>+1 123 234 2331</p>
               <p>aushveen@gmail.com</p>
             </div>
-  
             <ul class="footer__socials">
-              <li>
-                <a href="#"><i class="uil uil-facebook-f"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="uil uil-instagram-alt"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="uil uil-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="uil uil-linkedin-alt"></i></a>
-              </li>
+              <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+              <li><a href="#"><i class="uil uil-instagram-alt"></i></a></li>
+              <li><a href="#"><i class="uil uil-twitter"></i></a></li>
+              <li><a href="#"><i class="uil uil-linkedin-alt"></i></a></li>
             </ul>
           </div>
         </div>
@@ -489,10 +325,6 @@
             <small>Copyright &copy; 2024</small>
         </div>
       </footer>
-
-      
-
-
 
       <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
       <script src="./main.js"></script>
@@ -505,19 +337,31 @@
         function hidePaymentModal() {
             document.querySelector(".payment").style.display = "none";
         }
-        </script>
 
+        // Intersection Observer for animating elements on scroll
+        function callback(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
 
-      <script>
-          // slides for testimonials section
-          var swiper = new Swiper(".mySwiper", {
+        let observer = new IntersectionObserver(callback, { threshold: 0.1 });
+
+        document.querySelectorAll('.hidden').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Swiper for testimonials section
+        var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 30,
             pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+                el: ".swiper-pagination",
+                clickable: true,
             },
-            // when window width is >= 600px
             breakpoints: {
                 600: {
                     slidesPerView: 2
@@ -525,6 +369,5 @@
             }
         });
       </script>
-
 </body>
 </html>
