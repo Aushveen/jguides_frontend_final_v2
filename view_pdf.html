@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Your PDF</title>
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+
+    <!-- GOOGLE FONTS (MONTSERRAT) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/viewYourPDF.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav__container">
+            <a href="index.html"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="nav__logo-image"></a>
+            <ul class="nav__menu">
+                <li><a href="index.html">Go Back To Main Page</a></li>
+            </ul>
+            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+        </div>
+    </nav>
+    <!--========================== END OF NAVBAR ============================-->
+
+    <section class="view-pdf">
+        <div class="container view-pdf__container">
+            <h2>View Your PDF</h2>
+            <form id="viewPdfForm" class="view-pdf__form">
+                <input type="email" name="email" placeholder="Enter your order email" required>
+                <input type="text" name="orderId" placeholder="Enter your order ID" required>
+                <button type="submit" class="btn btn-primary">View PDF</button>
+            </form>
+        </div>
+        <div id="image-container" class="image-container">
+            <p>No image to display</p>
+        </div>
+        <div class="nav-buttons">
+            <button class="btn-nav" onclick="goLeft()">Go Left</button>
+            <button class="btn-nav" onclick="goRight()">Go Right</button>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer__container">
+            <div class="footer__1">
+                <a href="index.html#" class="footer__logo"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="footer__logo-image"></a>
+            </div>
+            <div class="footer__2">
+                <h4>Quick Links</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html#">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#ebook">J-Guide</a></li>
+                    <li><a href="contact.html#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer__3">
+                <h4>Privacy</h4>
+                <ul class="privacy">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and conditions</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer__4">
+                <h4>Contact Us</h4>
+                <div>
+                    <p>+1 123 123 1221</p>
+                    <p>aushveen@gmail.com</p>
+                </div>
+                <ul class="footer__socials">
+                    <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="uil uil-instagram-alt"></i></a></li>
+                    <li><a href="#"><i class="uil uil-twitter"></i></a></li>
+                    <li><a href="#"><i class="uil uil-linkedin-alt"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <small>Copyright &copy; 2024</small>
+        </div>
+    </footer>
+
+    <script>
+        let images = [];
+        let currentIndex = 0;
+        let currentOrderId = null;
+
+        document.getElementById('viewPdfForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const email = event.target.email.value;
+            const orderId = event.target.orderId.value;
+
+            currentOrderId = orderId;
+
+            try {
+                // Validate the order
+                const orderResponse = await fetch(`http://localhost:8081/orders/${orderId}/${email}`);
+                if (orderResponse.ok) {
+                    const order = await orderResponse.json();
+                    const ebookId = order.ebookID;
+
+                    // Fetch the images
+                    const imagesResponse = await fetch(`http://localhost:8081/ebooks/${ebookId}/pdf/${orderId}`);
+                    if (imagesResponse.ok) {
+                        images = await imagesResponse.json();
+                        if (images.length > 0) {
+                            currentIndex = 0;
+                            displayImage();
+                        } else {
+                            document.getElementById('image-container').innerHTML = '<p>No images found</p>';
+                        }
+                    } else {
+                        const errorMessage = await imagesResponse.text();
+                        console.error(`Failed to retrieve images: ${errorMessage}`);
+                        alert(`Failed to retrieve images: ${errorMessage}`);
+                    }
+                } else {
+                    const errorMessage = await orderResponse.text();
+                    console.error(`Invalid order: ${errorMessage}`);
+                    alert(`Invalid order: ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while retrieving the images.');
+            }
+        });
+
+        function displayImage() {
+            const imageContainer = document.getElementById('image-container');
+            imageContainer.innerHTML = '';
+            const img = document.createElement('img');
+            img.src = 'data:image/jpeg;base64,' + images[currentIndex];
+            imageContainer.appendChild(img);
+        }
+
+        function goRight() {
+            if (images.length > 0) {
+                currentIndex = (currentIndex + 1) % images.length;
+                displayImage();
+            }
+        }
+
+        function goLeft() {
+            if (images.length > 0) {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                displayImage();
+            }
+        }
+
+        window.addEventListener('beforeunload', async function () {
+            if (currentOrderId) {
+                try {
+                    await fetch(`http://localhost:8081/ebooks/reset/${currentOrderId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error resetting view count:', error);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
