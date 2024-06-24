@@ -20,6 +20,9 @@
     <style>
         body { background-image: url("./images/bg-texture.png") }
     </style>
+    
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <nav>
@@ -33,14 +36,6 @@
         </div>
     </nav>
     <!--========================== END OF NAVBAR ============================-->
-
-
-
-
-
-
-
-
 
     <section class="contact">
         <div class="container contact__container">
@@ -74,36 +69,24 @@
             </ul>
             </aside>
 
-
-
-
-            <form action="https://formspree.io/f/xeqnevgj" method="POST" class="contact__form">
-                <div class="form__name">
-                    <input type="text" name="First Name" placeholder="First Name" required>
-                    <input type="text" name="Last Name" placeholder="Last Name" required>
-                </div>
-                <input type="email" name="Email Address" placeholder="Your Email Address" required>
-                <textarea name="Message"  rows="7" placeholder="Message" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+            <form id="contactForm" class="contact__form">
+              <div class="form__name">
+                  <input type="text" name="First Name" placeholder="First Name" required>
+                  <input type="text" name="Last Name" placeholder="Last Name" required>
+              </div>
+              <input type="email" name="Email Address" placeholder="Your Email Address" required>
+              <textarea name="Message" rows="7" placeholder="Message" required></textarea>
+              <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>          
         </div>
     </section>
-
-
-
-
-
-
-
-
-    
 
     <footer>
         <div class="container footer__container">
           <div class="footer__1">
             <a href="index.html#" class="footer__logo"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="footer__logo-image"></a>
-            <p>
-            </p>
+            <p></p>
           </div>
   
           <div class="footer__2">
@@ -133,18 +116,8 @@
             </div>
   
             <ul class="footer__socials">
-              <li>
-                <a href="#"><i class="uil uil-facebook-f"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="uil uil-instagram-alt"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="uil uil-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="uil uil-linkedin-alt"></i></a>
-              </li>
+              <li><a href="https://www.facebook.com/profile.php?id=61561265210229"><i class="uil uil-facebook-f"></i></a></li>
+              <li><a href="https://www.instagram.com/j.guides/"><i class="uil uil-instagram-alt"></i></a></li>
             </ul>
           </div>
         </div>
@@ -152,7 +125,6 @@
             <small>Copyright &copy; 2024</small>
         </div>
       </footer>
-
 
       <script src="./main.js"></script>
 </body>

@@ -49,4 +49,81 @@ const closeNav = () => {
 
 closeBtn.addEventListener('click', closeNav)
 
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Verify reCAPTCHA before sending the form data
+    const token = grecaptcha.getResponse();
+    if (!token) {
+        alert('Please complete the CAPTCHA.');
+        return;
+    }
+
+    const contact = {
+        name: formData.get('First Name') + " " + formData.get('Last Name'),
+        email: formData.get('Email Address'),
+        message: formData.get('Message'),
+        'g-recaptcha-response': token
+    };
+
+    try {
+        const response = await fetch('http://localhost:8080/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(contact)
+        });
+
+        if (response.status === 201) {
+            alert('Message sent successfully.');
+            form.reset();
+            grecaptcha.reset(); // Reset reCAPTCHA
+        } else {
+            alert('Failed to send the message.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to send the message.');
+    }
+});
+
+
+/*
+
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    const contact = {
+        name: formData.get('First Name') + " " + formData.get('Last Name'),
+        email: formData.get('Email Address'),
+        message: formData.get('Message')
+    };
+
+    try {
+        const response = await fetch('http://localhost:8080/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(contact)
+        });
+
+        if (response.status === 201) {
+            alert('Message sent successfully.');
+            form.reset();
+        } else {
+            alert('Failed to send the message.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to send the message.');
+    }
+});
+*/

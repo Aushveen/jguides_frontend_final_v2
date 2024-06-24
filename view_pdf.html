@@ -14,6 +14,10 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/viewYourPDF.css">
+
+    <style>
+        body { background-image: url("./images/bg-texture.png") }
+    </style>
 </head>
 <body>
     <nav>
@@ -39,6 +43,9 @@
         </div>
         <div id="image-container" class="image-container">
             <p>No image to display</p>
+        </div>
+        <div id="page-number" class="page-number">
+            <p>Page 0 of 0</p>
         </div>
         <div class="nav-buttons">
             <button class="btn-nav" onclick="goLeft()">Go Left</button>
@@ -75,10 +82,8 @@
                     <p>aushveen@gmail.com</p>
                 </div>
                 <ul class="footer__socials">
-                    <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="uil uil-instagram-alt"></i></a></li>
-                    <li><a href="#"><i class="uil uil-twitter"></i></a></li>
-                    <li><a href="#"><i class="uil uil-linkedin-alt"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61561265210229"><i class="uil uil-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/j.guides/"><i class="uil uil-instagram-alt"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -102,13 +107,13 @@
 
             try {
                 // Validate the order
-                const orderResponse = await fetch(`http://localhost:8081/orders/${orderId}/${email}`);
+                const orderResponse = await fetch(`http://localhost:8080/orders/${orderId}/${email}`);
                 if (orderResponse.ok) {
                     const order = await orderResponse.json();
                     const ebookId = order.ebookID;
 
                     // Fetch the images
-                    const imagesResponse = await fetch(`http://localhost:8081/ebooks/${ebookId}/pdf/${orderId}`);
+                    const imagesResponse = await fetch(`http://localhost:8080/ebooks/${ebookId}/pdf/${orderId}`);
                     if (imagesResponse.ok) {
                         images = await imagesResponse.json();
                         if (images.length > 0) {
@@ -135,10 +140,12 @@
 
         function displayImage() {
             const imageContainer = document.getElementById('image-container');
+            const pageNumber = document.getElementById('page-number');
             imageContainer.innerHTML = '';
             const img = document.createElement('img');
             img.src = 'data:image/jpeg;base64,' + images[currentIndex];
             imageContainer.appendChild(img);
+            pageNumber.innerHTML = `<p>Page ${currentIndex + 1} of ${images.length}</p>`;
         }
 
         function goRight() {
@@ -158,7 +165,7 @@
         window.addEventListener('beforeunload', async function () {
             if (currentOrderId) {
                 try {
-                    await fetch(`http://localhost:8081/ebooks/reset/${currentOrderId}`, {
+                    await fetch(`http://localhost:8080/ebooks/reset/${currentOrderId}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
