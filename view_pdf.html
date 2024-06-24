@@ -22,13 +22,19 @@
 <body>
     <nav>
         <div class="container nav__container">
-            <a href="index.html"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="nav__logo-image"></a>
+            <a href="index.html#"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="nav__logo-image"></a>
             <ul class="nav__menu">
-                <li><a href="index.html">Go Back To Main Page</a></li>
-            </ul>
-            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
-            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
-        </div>
+                  <li><a href="index.html#">Home</a></li>
+                  <li><a href="index.html#about">About</a></li>
+                  <li><a href="index.html#ebook">J-Guide</a></li>
+                  <li><a href="index.html#faq">FAQ</a></li>
+                  <li><a href="index.html#testimonials">Testimonials</a></li>
+                  <li><a href="view_pdf.html">View Your J-Guide</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+              <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+              <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+          </div>
     </nav>
     <!--========================== END OF NAVBAR ============================-->
 
@@ -47,6 +53,7 @@
         <div id="page-number" class="page-number">
             <p>Page 0 of 0</p>
         </div>
+        <div id="links-container" class="links-container"></div>
         <div class="nav-buttons">
             <button class="btn-nav" onclick="goLeft()">Go Left</button>
             <button class="btn-nav" onclick="goRight()">Go Right</button>
@@ -70,20 +77,19 @@
             <div class="footer__3">
                 <h4>Privacy</h4>
                 <ul class="privacy">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms and conditions</a></li>
-                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="privacy_refunds.html">Privacy Policy</a></li>
+                    <li><a href="privacy_refunds.html">Refund Policy</a></li>
                 </ul>
             </div>
             <div class="footer__4">
                 <h4>Contact Us</h4>
                 <div>
                     <p>+1 123 123 1221</p>
-                    <p>aushveen@gmail.com</p>
+                    <p>josh@jguides.com</p>
                 </div>
                 <ul class="footer__socials">
-                    <li><a href="https://www.facebook.com/profile.php?id=61561265210229"><i class="uil uil-facebook-f"></i></a></li>
-                    <li><a href="https://www.instagram.com/j.guides/"><i class="uil uil-instagram-alt"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61561265210229" target="_blank"><i class="uil uil-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/j.guides/" target="_blank"><i class="uil uil-instagram-alt"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -91,17 +97,51 @@
             <small>Copyright &copy; 2024</small>
         </div>
     </footer>
-
+    <script src="./main.js"></script>
     <script>
         let images = [];
         let currentIndex = 0;
         let currentOrderId = null;
 
+        const links = {
+            22: '<a href="https://beinvolved.indiana.edu/?_gl=1*6fojem*_ga*MTUyNDM2MjQyMS4xNzAzMTc0MDYx*_ga_61CH0D2DQW*MTcwNTk2MjI5Ny44LjEuMTcwNTk2MzQ2Ni40OS4wLjA" class="btn btn-primary" target="_blank">BeINvolved</a>',
+            23: `
+              <a href="https://studentlife.indiana.edu/involvement-belonging/student-involvement-leadership/leadership-programs/index.html" class="btn btn-primary" target="_blank">Leadership Programs 1</a><br>
+                <a href="https://studentlife.indiana.edu/get-involved/leadership-programs/index.html" class="btn btn-primary" target="_blank">Leadership Programs 2</a><br>
+                <a href="https://iustudentgovernment.indiana.edu/" class="btn btn-primary" target="_blank">IU Student Government</a><br>
+                <a href="https://imu.indiana.edu/union-board/index.html" class="btn btn-primary" target="_blank">Union Board</a><br>
+                <a href="https://fundiu.indiana.edu/" class="btn btn-primary" target="_blank">Funding Board</a><br>
+                <a href="https://studentaffairs.indiana.edu/get-involved/outdoor-adventures/join-the-team.html" class="btn btn-primary" target="_blank">IU Outdoor Adventures</a><br>
+                <a href="https://jobs.iu.edu/" class="btn btn-primary" target="_blank">Student Employment</a><br>
+                <a href="https://studentaffairs.indiana.edu/get-involved/leadership-programs/index.html" class="btn btn-primary" target="_blank">Peer Fac</a>
+    `,
+            24: '<a href="https://luddy.indiana.edu/academics/align/innovation-entrepreneurship/index.html?_gl=1*1h5m7gr*_ga*MTIyNzg5MTgxOS4xNjc4MjkwMTI3*_ga_61CH0D2DQW*MTcwNTk2NTU3NC43OS4xLjE3MDU5NjU2NDguNDYuMC4w&_ga=2.241427527.418170106.1705944480-1227891819.1678290127" class="btn btn-primary" target="_blank">Shoemaker Innovation Center</a><br><a href="https://kelley.iu.edu/programs/undergrad/academics/workshops/index.html" class="btn btn-primary" target="_blank">Kelley Workshops</a>',
+            25: `
+        <a href="https://studentaffairs.indiana.edu/get-involved/sororities-fraternities/joining/index.html" target="_blank" class="btn btn-primary">Sororities & Fraternities</a><br>
+        <a href="https://beinvolved.indiana.edu/organization/ifc" target="_blank" class="btn btn-primary">Interfraternity Council</a><br>
+        <a href="https://iumcgc.wixsite.com/mysite" target="_blank" class="btn btn-primary">Multi-Cultural Greek Council</a><br>
+        <a href="https://beinvolved.indiana.edu/organization/nphc" target="_blank" class="btn btn-primary">National Pan-Hellenic Council</a><br>
+        <a href="https://www.panhellenicindiana.org/" target="_blank" class="btn btn-primary">Panhellenic Association</a>
+                `,
+            27: '<a href="https://recsports.indiana.edu/activites/courts.html" target="_blank" class="btn btn-primary">Courts and Fields</a><br><a href="https://imu.indiana.edu/activities-services/bowling-billiards/index.html" target="_blank" class="btn btn-primary">Bowling and Billiards</a>',
+            32: '<a href="https://1drv.ms/x/s!AlvCStp-8HUNhBDQN33T-2vmyDUf?e=7EP5IH" target="_blank" class="btn btn-primary">Class Schedule Builder</a><br><a href="https://1drv.ms/x/s!AlvCStp-8HUNhBIMfgrpn0IScicW?e=SWUbO7" target="_blank" class="btn btn-primary">Weekly Planner</a>',
+            33: `
+        <a href="https://vimeo.com/user221399637/j-guides1" target="_blank" class="btn btn-primary">CLICK ME - WALK-THROUGH 1</a><br>
+        <a href="https://vimeo.com/user221399637/j-guides2" target="_blank" class="btn btn-primary">CLICK ME - WALK-THROUGH 2</a>
+                `,
+            34: `
+        <a href="https://vimeo.com/user221399637/j-guides3" target="_blank" class="btn btn-primary">CLICK ME - WALK-THROUGH 3</a>
+                 `,
+            37: '<a href="https://www.cdc.gov/vaccines/schedules/downloads/teen/parent-version-schedule-7-18yrs.pdf" target="_blank" class="btn btn-primary">Download CDC’s 2024 Recommended Immunizations</a>',
+            38: '<a href="https://redtutoring.com/" target="_blank" class="btn btn-primary">Red Tutoring</a><br><a href="https://campusts.com/?gclid=Cj0KCQjwncWvBhD_ARIsAEb2HW_vbAaR7PIlSVQXqKNisTGwDtrWbt61GeCvNWgzQaVxJeZGQx8Dk2kaAtd_EALw_wcB" target="_blank" class="btn btn-primary">Campus Tutoring</a><br><a href="https://bloomingtontutors.com/" target="_blank" class="btn btn-primary">Bloomington Tutors</a><br><a href="https://bschooltutors.com/" target="_blank" class="btn btn-primary">B-School Tutors</a>',
+            43: '<a href="http://www.twiceexceptional.us" target="_blank" class="btn btn-primary">Twice Exceptional</a>'
+        };
+
         document.getElementById('viewPdfForm').addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            const email = event.target.email.value;
-            const orderId = event.target.orderId.value;
+            const email = event.target.email.value.trim();
+            const orderId = event.target.orderId.value.trim();
 
             currentOrderId = orderId;
 
@@ -129,23 +169,32 @@
                     }
                 } else {
                     const errorMessage = await orderResponse.text();
-                    console.error(`Invalid order: ${errorMessage}`);
-                    alert(`Invalid order: ${errorMessage}`);
+                    alert(`Invalid order, please make sure you email address and order ID are right: ${errorMessage}`);
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('An error occurred while retrieving the images.');
+                alert('Server is down, let support know server is down.');
             }
         });
 
         function displayImage() {
             const imageContainer = document.getElementById('image-container');
             const pageNumber = document.getElementById('page-number');
+            const linksContainer = document.getElementById('links-container');
+
             imageContainer.innerHTML = '';
             const img = document.createElement('img');
             img.src = 'data:image/jpeg;base64,' + images[currentIndex];
             imageContainer.appendChild(img);
             pageNumber.innerHTML = `<p>Page ${currentIndex + 1} of ${images.length}</p>`;
+
+            // Display links if they exist for the current page
+            const pageLinks = links[currentIndex + 1];
+            if (pageLinks) {
+                linksContainer.innerHTML = pageLinks;
+            } else {
+                linksContainer.innerHTML = '';
+            }
         }
 
         function goRight() {

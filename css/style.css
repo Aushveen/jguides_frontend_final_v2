@@ -185,6 +185,17 @@ header {
   height: 100%;
 }
 
+.links-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.links-container a {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+
 
 
 .header__left h1 {
