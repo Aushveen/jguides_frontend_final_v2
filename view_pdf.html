@@ -147,13 +147,13 @@
 
             try {
                 // Validate the order
-                const orderResponse = await fetch(`http://localhost:8080/orders/${orderId}/${email}`);
+                const orderResponse = await fetch(`https://jguides.onrender.com/orders/${orderId}/${email}`);
                 if (orderResponse.ok) {
                     const order = await orderResponse.json();
                     const ebookId = order.ebookID;
 
                     // Fetch the images
-                    const imagesResponse = await fetch(`http://localhost:8080/ebooks/${ebookId}/pdf/${orderId}`);
+                    const imagesResponse = await fetch(`https://jguides.onrender.com/ebooks/${ebookId}/pdf/${orderId}`);
                     if (imagesResponse.ok) {
                         images = await imagesResponse.json();
                         if (images.length > 0) {
@@ -214,7 +214,7 @@
         window.addEventListener('beforeunload', async function () {
             if (currentOrderId) {
                 try {
-                    await fetch(`http://localhost:8080/ebooks/reset/${currentOrderId}`, {
+                    await fetch(`https://jguides.onrender.com/ebooks/reset/${currentOrderId}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
