@@ -84,7 +84,7 @@
             <div class="footer__4">
                 <h4>Contact Us</h4>
                 <div>
-                    <p>+1 123 123 1221</p>
+                    <p>+1 734 730 1602</p>
                     <p>josh@jguides.com</p>
                 </div>
                 <ul class="footer__socials">
@@ -99,6 +99,17 @@
     </footer>
     <script src="./main.js"></script>
     <script>
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === 'Spacebar') {
+                goRight();
+            } else if (event.key === 'ArrowLeft' || event.key === 'Backspace') {
+                goLeft();
+            }
+        });
+        
+
+
         let images = [];
         let currentIndex = 0;
         let currentOrderId = null;
