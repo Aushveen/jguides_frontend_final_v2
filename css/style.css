@@ -418,7 +418,7 @@ label {
   height: fit-content;
   background: var(--color-primary);
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: 50px;
 
 }
 
@@ -470,7 +470,7 @@ label {
   padding: 2rem;
   margin-top: 3rem;
   position: relative;
-  border-radius: 100px;
+  border-radius: 50px;
 }
 
 .testimonial__body::before {

@@ -234,10 +234,17 @@
         }
 
         // Swipe detection for touch screens
-        let touchstartX = 0;
-        let touchendX = 0;
+let touchstartX = 0;
+let touchendX = 0;
+let touchstartY = 0;
+let touchendY = 0;
+const minSwipeDistance = 50; // Minimum horizontal distance in pixels to consider as a swipe
+const maxVerticalSwipeDistance = 50; // Maximum vertical distance in pixels to consider as a valid horizontal swipe
 
-        function handleGesture() {
+    function handleGesture() {
+        const horizontalSwipeDistance = Math.abs(touchendX - touchstartX);
+        const verticalSwipeDistance = Math.abs(touchendY - touchstartY);
+        if (horizontalSwipeDistance > minSwipeDistance && verticalSwipeDistance < maxVerticalSwipeDistance) {
             if (touchendX < touchstartX) {
                 goRight();
             }
@@ -245,13 +252,16 @@
                 goLeft();
             }
         }
+    }
 
         document.addEventListener('touchstart', function(event) {
             touchstartX = event.changedTouches[0].screenX;
+            touchstartY = event.changedTouches[0].screenY;
         }, false);
 
         document.addEventListener('touchend', function(event) {
             touchendX = event.changedTouches[0].screenX;
+            touchendY = event.changedTouches[0].screenY;
             handleGesture();
         }, false);
 
