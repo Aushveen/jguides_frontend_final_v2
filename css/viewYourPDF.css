@@ -39,8 +39,17 @@ input {
     margin: 20px auto; /* Center horizontally with auto margins */
     max-width: 80%;
     max-height: 1000px;
+    font-size: 24px;
     overflow: auto;  /* Allow scrolling within the container if necessary */
 }
+
+.recaptcha-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Adjust as needed for spacing */
+}
+
 
 .image-container img {
     width: 100%;
@@ -72,6 +81,13 @@ input {
 }
 
 .page-number {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: var(--color-white);
+}
+
+.instructions {
     text-align: center;
     margin-top: 10px;
     font-size: 18px;

@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/viewYourPDF.css">
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body { background-image: url("./images/bg-texture.png") }
     </style>
@@ -40,18 +40,24 @@
 
     <section class="view-pdf">
         <div class="container view-pdf__container">
-            <h2>View Your PDF</h2>
+            <h2>View Your J-Guide</h2>
             <form id="viewPdfForm" class="view-pdf__form">
                 <input type="email" name="email" placeholder="Enter your order email" required>
                 <input type="text" name="orderId" placeholder="Enter your order ID" required>
-                <button type="submit" class="btn btn-primary">View PDF</button>
+                <div class="recaptcha-container">
+                    <div class="g-recaptcha" data-sitekey="6LetpAEqAAAAAJnhuBi8_Zs5e9dCdiWvTKsmk3Nk"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">View J-Guide</button>
             </form>
         </div>
         <div id="image-container" class="image-container">
-            <p>No image to display</p>
+            <p>Give me a minute to load once you click View J-Guide</p>
         </div>
         <div id="page-number" class="page-number">
             <p>Page 0 of 0</p>
+        </div>
+        <div id="instructions" class="instructions">
+            <p>You can use the buttons, the arrow right and left keys to go to the next or previous page, or you could swipe right or left.</p>
         </div>
         <div id="links-container" class="links-container"></div>
         <div class="nav-buttons">
@@ -99,16 +105,13 @@
     </footer>
     <script src="./main.js"></script>
     <script>
-
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowRight' || event.key === 'Spacebar') {
+            if (event.key === 'ArrowRight') {
                 goRight();
             } else if (event.key === 'ArrowLeft' || event.key === 'Backspace') {
                 goLeft();
             }
         });
-        
-
 
         let images = [];
         let currentIndex = 0;
@@ -123,14 +126,14 @@
                 <a href="https://imu.indiana.edu/union-board/index.html" class="btn btn-primary" target="_blank">Union Board</a><br>
                 <a href="https://fundiu.indiana.edu/" class="btn btn-primary" target="_blank">Funding Board</a><br>
                 <a href="https://studentaffairs.indiana.edu/get-involved/outdoor-adventures/join-the-team.html" class="btn btn-primary" target="_blank">IU Outdoor Adventures</a><br>
-                <a href="https://jobs.iu.edu/" class="btn btn-primary" target="_blank">Student Employment</a><br>
+                <a href="https://studentemployment.indiana.edu" class="btn btn-primary" target="_blank">Student Employment</a><br>
                 <a href="https://studentaffairs.indiana.edu/get-involved/leadership-programs/index.html" class="btn btn-primary" target="_blank">Peer Fac</a>
     `,
             24: '<a href="https://luddy.indiana.edu/academics/align/innovation-entrepreneurship/index.html?_gl=1*1h5m7gr*_ga*MTIyNzg5MTgxOS4xNjc4MjkwMTI3*_ga_61CH0D2DQW*MTcwNTk2NTU3NC43OS4xLjE3MDU5NjU2NDguNDYuMC4w&_ga=2.241427527.418170106.1705944480-1227891819.1678290127" class="btn btn-primary" target="_blank">Shoemaker Innovation Center</a><br><a href="https://kelley.iu.edu/programs/undergrad/academics/workshops/index.html" class="btn btn-primary" target="_blank">Kelley Workshops</a>',
             25: `
         <a href="https://studentaffairs.indiana.edu/get-involved/sororities-fraternities/joining/index.html" target="_blank" class="btn btn-primary">Sororities & Fraternities</a><br>
-        <a href="https://beinvolved.indiana.edu/organization/ifc" target="_blank" class="btn btn-primary">Interfraternity Council</a><br>
-        <a href="https://iumcgc.wixsite.com/mysite" target="_blank" class="btn btn-primary">Multi-Cultural Greek Council</a><br>
+        <a href="https://www.ifcindiana.org" target="_blank" class="btn btn-primary">Interfraternity Council</a><br>
+        <a href="https://iumcgc.wixsite.com/mcgc" target="_blank" class="btn btn-primary">Multi-Cultural Greek Council</a><br>
         <a href="https://beinvolved.indiana.edu/organization/nphc" target="_blank" class="btn btn-primary">National Pan-Hellenic Council</a><br>
         <a href="https://www.panhellenicindiana.org/" target="_blank" class="btn btn-primary">Panhellenic Association</a>
                 `,
@@ -150,15 +153,23 @@
 
         document.getElementById('viewPdfForm').addEventListener('submit', async function (event) {
             event.preventDefault();
+            document.getElementById('image-container').scrollIntoView({ behavior: 'smooth' });
 
             const email = event.target.email.value.trim();
             const orderId = event.target.orderId.value.trim();
+
+            // Verify reCAPTCHA before sending the form data
+            const token = grecaptcha.getResponse();
+            if (!token) {
+                alert('Please complete the CAPTCHA.');
+                return;
+            }
 
             currentOrderId = orderId;
 
             try {
                 // Validate the order
-                const orderResponse = await fetch(`https://jguides.onrender.com/orders/${orderId}/${email}`);
+                const orderResponse = await fetch(`https://jguides.onrender.com/orders/${orderId}/${email}/${token}`);
                 if (orderResponse.ok) {
                     const order = await orderResponse.json();
                     const ebookId = order.ebookID;
@@ -180,7 +191,7 @@
                     }
                 } else {
                     const errorMessage = await orderResponse.text();
-                    alert(`Invalid order, please make sure you email address and order ID are right: ${errorMessage}`);
+                    alert(`Invalid order, please make sure your email address and order ID are correct: ${errorMessage}`);
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -221,6 +232,28 @@
                 displayImage();
             }
         }
+
+        // Swipe detection for touch screens
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        function handleGesture() {
+            if (touchendX < touchstartX) {
+                goRight();
+            }
+            if (touchendX > touchstartX) {
+                goLeft();
+            }
+        }
+
+        document.addEventListener('touchstart', function(event) {
+            touchstartX = event.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener('touchend', function(event) {
+            touchendX = event.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
 
         window.addEventListener('beforeunload', async function () {
             if (currentOrderId) {

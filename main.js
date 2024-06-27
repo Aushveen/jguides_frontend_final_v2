@@ -66,11 +66,12 @@ document.getElementById('contactForm').addEventListener('submit', async function
         name: formData.get('First Name') + " " + formData.get('Last Name'),
         email: formData.get('Email Address'),
         message: formData.get('Message'),
-        'g-recaptcha-response': token
+        recaptchaResponse: token
     };
 
+    //https://jguides.onrender.com/contact
     try {
-        const response = await fetch('https://jguides.onrender.com/contact', {
+        const response = await fetch('http://localhost:8080/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -87,7 +88,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to send the message.');
+        alert('error.');
     }
 });
 

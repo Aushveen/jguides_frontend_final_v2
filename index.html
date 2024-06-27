@@ -289,47 +289,53 @@
                       <img src="./images/avatar1.jpg">
                   </div>
                   <div class="testimonial__info">
-                      <h5>Diana Ayi</h5>
-                      <small>Student</small>
+                      <h5>Juliet</h5>
+                      <small>Mom</small>
                   </div>
                   <div class="testimonial__body">
-                      <p>Some text</p>
+                      <p>I am absolutely blown away by this guidebook! It’s a resource that I highly recommend all parents give to their kids as a must-read. It’s packed with important info and advice that will not only help my daughter prepare for the upcoming year but will also support her throughout her entire freshman year. I found it extremely helpful as well. There's a lot of information that I think would benefit many parents. This guidebook has been a game changer for us!
+                      </p>
                   </div>
               </article>
               <article class="testimonial swiper-slide">
                 <div class="avatar">
-                    <img src="./images/avatar1.jpg">
+                    <img src="./images/avatar2.jpg">
                 </div>
                 <div class="testimonial__info">
-                    <h5>Diana Ayi</h5>
+                    <h5>Elise</h5>
                     <small>Student</small>
                 </div>
                 <div class="testimonial__body">
-                    <p>Some text</p>
+                    <p>The IU guidebook has been so helpful for me. From understanding campus life to building my schedule to just getting my expectations in line and hearing the perspective of a graduate. I think this guidebook will definitely make my transition to college smoother, and I am super grateful for that.
+                    </p>
                 </div>
             </article>
             <article class="testimonial swiper-slide">
               <div class="avatar">
-                  <img src="./images/avatar1.jpg">
+                  <img src="./images/avatar3.jpg">
               </div>
               <div class="testimonial__info">
-                  <h5>Diana Ayi</h5>
-                  <small>Student</small>
+                  <h5>Elizabeth</h5>
+                  <small>Mom</small>
               </div>
               <div class="testimonial__body">
-                  <p>Some text</p>
+                  <p>My son has orientation coming up, and this guidebook is the perfect thing for him to have to get his mind in the right place. It provided a great overview for both of us. There are many useful tips that will help me prepare to send him off and get ready for the move-in experience. I also find it heartwarming that a graduating student wants to pass down what they've learned. I think it's amazing and will really help a lot of students.
+
+                  </p>
               </div>
           </article>
           <article class="testimonial swiper-slide">
             <div class="avatar">
-                <img src="./images/avatar1.jpg">
+                <img src="./images/avatar4.jpg">
             </div>
             <div class="testimonial__info">
-                <h5>Diana Ayi</h5>
+                <h5>Gabe</h5>
                 <small>Student</small>
             </div>
             <div class="testimonial__body">
-                <p>Some text</p>
+                <p>Josh has really helped me out, past just his guidebook, I’ve communicated with him a bunch. I know I want to go into real estate and he has been super helpful, explaining certain resources on campus and telling me about the paths his friends took to get into the industry. Having someone to go to with questions will really help out during the year. And the video walk throughs were great to follow along to, such an easy way to learn how to use the tools / strategies.
+
+                </p>
             </div>
         </article>
         <article class="testimonial swiper-slide">
@@ -337,11 +343,13 @@
               <img src="./images/avatar1.jpg">
           </div>
           <div class="testimonial__info">
-              <h5>Diana Ayi</h5>
+              <h5>Brody</h5>
               <small>Student</small>
           </div>
           <div class="testimonial__body">
-              <p>Some text</p>
+              <p>The guidebook was very helpful. I thought the list of the necessities for college was one of the best parts  because I didn’t really know what to pack. Overall, this is definitely the resource I needed.
+
+              </p>
           </div>
       </article>
               <!-- Repeat testimonials as needed -->
@@ -403,6 +411,15 @@ const images = [
             "./images/6.jpg"
         ];
         let currentIndex = 0;
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                goRight();
+            } else if (event.key === 'ArrowLeft' || event.key === 'Backspace') {
+                goLeft();
+            }
+        });
+        
 
         function updateImage() {
             const imageElement = document.getElementById('currentImage');
