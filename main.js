@@ -69,9 +69,9 @@ document.getElementById('contactForm').addEventListener('submit', async function
         recaptchaResponse: token
     };
 
-    //https://jguides.onrender.com/contact
+    
     try {
-        const response = await fetch('http://localhost:8080/contact', {
+        const response = await fetch('https://jguides.onrender.com/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
