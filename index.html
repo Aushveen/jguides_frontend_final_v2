@@ -165,7 +165,7 @@
                 <div class="course__info">
                     <h4>Indiana J-Guide - $35.00</h4>
                     <p></p>
-                    <a href="https://buy.stripe.com/eVa9BE8ExgGk39C4gh" class="btn btn-primary" target="_blank">Buy Your J-Guide Now</a>
+                    <a href="https://buy.stripe.com/eVa9BE8ExgGk39C4gh" class="btn btn-primary" target="_blank" id="buy-guide">Buy Your J-Guide Now</a>
                   </div>
             </article>
           </div>
@@ -485,6 +485,10 @@ const images = [
                 }
             }
         });
+
+      document.getElementById('buy-guide').addEventListener('click', function() {
+        fbq('track', 'InitiateCheckout');
+    });
       </script>
 </body>
 </html>
