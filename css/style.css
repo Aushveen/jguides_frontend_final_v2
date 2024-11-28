@@ -273,6 +273,11 @@ header {
   border-radius: 0.9rem;
 }
 
+#ebook h2 {
+  margin-top: 60px; /* Adds space above each H2 */
+  margin-bottom: 20px; /* Adds space below each H2 */
+}
+
 .category h5 {
   margin: 2rem 0 1rem;
 }

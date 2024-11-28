@@ -31,23 +31,6 @@
           transform: translateY(0);
         }
     </style>
-    <!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1102774614156186');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1102774614156186&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
 </head>
 <body>
     <nav>
@@ -56,7 +39,7 @@
           <ul class="nav__menu">
                 <li><a href="index.html#">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#ebook">J-Guide</a></li>
+                <li><a href="products.html">Products</a></li>
                 <li><a href="index.html#faq">FAQ</a></li>
                 <li><a href="index.html#testimonials">Testimonials</a></li>
                 <li><a href="view_pdf.html">View Your J-Guide</a></li>
@@ -72,7 +55,7 @@
         <div class="container header__container">
             <div class="header__left">
               <img src="./images/j-guides def white-06.png">
-                <a href="index.html#ebook" class="btn btn-primary">Buy Your J-Guide Now</a>
+                <a href="products.html" class="btn btn-primary">Buy Your J-Guide Now</a>
             </div>
             <div class="header__right">
               <div class="header__right-image">
@@ -94,7 +77,7 @@
               My name is Josh Aronow, and I am a 2024 graduate of Indiana University's Kelley School of Business. The inspiration for J-Guides stemmed from my own experiences navigating the complexities of freshman year. I often wished for the advice, mentorship, and insights from someone who had already been through the process. I firmly believe that guidance from a relatable graduate can significantly impact a student’s college journey.<br><br>
               Freshman year is often filled with confusion and the overwhelming task of adapting to a new environment. My guidebook aims to alleviate these challenges by providing essential information, resources, and mentorship for both students and parents, all in one comprehensive package.
             </p>
-            <a href="index.html#ebook" class="btn">Buy Your J-Guide Now</a>
+            <a href="products.html" class="btn">Buy Your J-Guide Now</a>
           </div>
   
           <div class="categories__right">
@@ -151,25 +134,6 @@
       </section>
       <!--====================== END OF CATEGORIES =====================-->
 
-      <section id="ebook" class="courses hidden">
-          <h2>IU J-Guide</h2>
-          <div class="container courses__container">
-            <article class="course">
-              <div class="course__image image-container">
-                <img id="currentImage" src="./images/1.jpg" alt="IUEBook1">
-              </div>
-              <div class="nav-buttons">
-                  <button class="btn" onclick="goLeft()">Prev Page</button>
-                  <button class="btn" onclick="goRight()">Next Page</button>
-              </div>
-                <div class="course__info">
-                    <h4>Indiana J-Guide - $9.99</h4>
-                    <p></p>
-                    <a href="https://buy.stripe.com/9AQg025slahW4dG8wy" class="btn btn-primary" target="_blank" id="buy-guide">Buy Your J-Guide Now</a>
-                  </div>
-            </article>
-          </div>
-      </section>
       <!--====================== END OF COURSES =====================-->
 
       <section id="faq" class="faqs hidden">

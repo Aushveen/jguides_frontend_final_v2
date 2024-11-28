@@ -9,8 +9,13 @@
   gap: 5rem;
 }
 
-.about__achievements-right > p {
-  margin: 1.6rem 0 2.5rem;
+.about__achievements-right {
+  text-align: center; /* Center-aligns all text inside */
+}
+
+.about__achievements-right h1,
+.about__achievements-right p {
+  margin: 0 auto; /* Reset default margins */
 }
 
 .achievements__cards {
