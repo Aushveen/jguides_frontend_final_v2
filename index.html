@@ -380,45 +380,8 @@
 
       <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
       <script src="./main.js"></script>
-
+      
       <script>
-
-const images = [
-            "./images/1.jpg",
-            "./images/2.jpg",
-            "./images/3.jpg",
-            "./images/4.jpg",
-            "./images/5.jpg",
-            "./images/6.jpg"
-        ];
-        let currentIndex = 0;
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowRight') {
-                goRight();
-            } else if (event.key === 'ArrowLeft' || event.key === 'Backspace') {
-                goLeft();
-            }
-        });
-        
-
-        function updateImage() {
-            const imageElement = document.getElementById('currentImage');
-            const pageNumberElement = document.getElementById('pageNumber');
-            imageElement.src = images[currentIndex];
-            pageNumberElement.innerText = `Page ${currentIndex + 1} of ${images.length}`;
-        }
-
-        function goRight() {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateImage();
-        }
-
-        function goLeft() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateImage();
-        }
-
         // Intersection Observer for animating elements on scroll
         function callback(entries, observer) {
             entries.forEach(entry => {
