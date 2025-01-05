@@ -1,421 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J-GUIDES</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="" name="description">
+	<meta name="robots" content="noindex,nofollow">
+	<title>Home</title>
 
-    <!-- ICONSCOUT CDN -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+	<meta property="og:locale" content="en_US" />
+	<meta property="fb:app_id" content="" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:url" content="<?= $url_p; ?>" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:image:secure_url" content="" />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="576" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="" />
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:image:alt" content="" />
 
-    <!-- GOOGLE FONTS (MONTSERRAT) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-    <!-- SWIPER JS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<!-- LIBRARIES -->
 
-    <link rel="stylesheet" href="./css/style.css">
-
-    <style>
-        body { background-image: url("./images/bg-texture.png") }
-        .hidden {
-          opacity: 0;
-          transform: translateY(50px);
-          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-    </style>
+	<!-- CUSTOM STYLE -->
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href='assets/css/boxicons.min.css'>
+	<link rel="stylesheet" href="assets/css/fancybox.min.css">
+	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/slick-theme.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/toastify.min.css">
+	<link rel="stylesheet" href="assets/css/aos.css" />
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome v4.7.0 -->
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <nav>
-        <div class="container nav__container">
-          <a href="index.html#"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="nav__logo-image"></a>
-          <ul class="nav__menu">
-                <li><a href="index.html#">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="index.html#faq">FAQ</a></li>
-                <li><a href="index.html#testimonials">Testimonials</a></li>
-                <li><a href="guide.html">View Your Guide</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
-            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
-    <!--========================== END OF NAVBAR ============================-->
 
-    <header>
-        <div class="container header__container">
-            <div class="header__left">
-              <img src="./images/j-guides def white-06.png">
-                <a href="products.html" class="btn btn-primary">Buy Products Now</a>
-            </div>
-            <div class="header__right">
-              <div class="header__right-image">
-                <video class="responsive-video" controls>
-                  <source src="./videos/vid.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>               
-              </div>
+<header>
+  <!--<section class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Anxious about your first year? You've come to the right place!</p>
             </div>
         </div>
-    </header>
-    <!--========================== END OF HEADER ============================-->
-
-    <section id="about" class="categories hidden">
-        <div class="container categories__container">
-          <div class="categories__left">
-            <h1>About J-GUIDES</h1>
-            <p>
-              My name is Josh Aronow, and I am a 2024 graduate of Indiana University's Kelley School of Business. The inspiration for J-Guides stemmed from my own experiences navigating the complexities of freshman year. I often wished for the advice, mentorship, and insights from someone who had already been through the process. I firmly believe that guidance from a relatable graduate can significantly impact a student’s college journey.<br><br>
-              Freshman year is often filled with confusion and the overwhelming task of adapting to a new environment. My guidebook aims to alleviate these challenges by providing essential information, resources, and mentorship for both students and parents, all in one comprehensive package.
-            </p>
-            <a href="products.html" class="btn">Buy Your Guide Now</a>
-          </div>
-  
-          <div class="categories__right">
-            <article class="category">
-              <span class="category__icon">
-                <i class="uil uil-books"></i>
-              </span>
-              <h5>Resourceful</h5>
-              <p>Contains insights from my 4 years at Indiana and a curated compilation of essential resources</p>
-            </article>
-  
-            <article class="category">
-              <span class="category__icon">
-                <i class="uil uil-video"></i>
-              </span>
-              <h5>Video Walkthroughs</h5>
-              <p>Video walkthroughs on planning your classes, building your schedule, and enrolling</p>
-            </article>
-  
-            <article class="category">
-              <span class="category__icon">
-                <i class="uil uil-rocket"></i>
-              </span>
-              <h5>A Head Start</h5>
-              <p>Uncover key tools and strategies often overlooked by advisors</p>
-            </article>
-  
-            <article class="category">
-              <span class="category__icon">
-                <i class="uil uil-file-alt"></i>
-              </span>
-              <h5>Excel Templates</h5>
-              <p>Free Excel template to plan, organize, visualize, and maximize your class schedule
-              </p>
-            </article>
-  
-            <article class="category">
-              <span class="category__icon">
-                <i class="uil uil-calendar-alt"></i>
-              </span>
-              <h5>Digital Planner</h5>
-              <p>Never miss a due date with our digital planner Excel template</p>
-            </article>
-  
-            <article class="category">
-              <span class="category__icon">
-                <i class="uil uil-headphones"></i>
-              </span>
-              <h5>Dedicated Support</h5>
-              <p>You'll have direct access to my contact info and can ask questions through our contact form</p>
-            </article>
-          </div>
-        </div>
-      </section>
-      <!--====================== END OF CATEGORIES =====================-->
-
-      <!--====================== END OF COURSES =====================-->
-
-      <section id="faq" class="faqs hidden">
-          <h2>Frequently Asked Questions</h2>
-          <div class="container faqs__container">
-              <article class="faq">
-                  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                  <div class="question__answer">
-                      <h4>What does the guidebook include?</h4>
-                      <p>The guidebook covers a wide range of topics, including move-in tips, campus life, involvement opportunities, scheduling advice, legal documents, and recommendations for parents. 
-                        It also offers useful resources, valuable tips, practical advice, video walkthroughs, Excel templates, and a digital planner.</p>
-                  </div>
-              </article>
-              <article class="faq">
-                <div class="faq__icon"><i class="uil uil-plus"></i></div>
-                <div class="question__answer">
-                    <h4>How can J-Guides benefit me as a freshman?</h4>
-                    <p>J-Guides provides insider tips and strategies often overlooked by advisors, based on Josh's four years at Indiana University. 
-                      It aims to help you make informed decisions, avoid common pitfalls, and ensure a smooth transition into college life.</p>
-                </div>
-            </article>
-            <article class="faq">
-              <div class="faq__icon"><i class="uil uil-plus"></i></div>
-              <div class="question__answer">
-                  <h4>Are there any resources included with the guidebook?</h4>
-                  <p>Yes, J-Guides includes video walkthroughs for class planning, schedule building, and utilizing overlooked resources. 
-                    It also features a customizable schedule builder and a digital planner with prioritization tools via Excel.</p>
-              </div>
-          </article>
-          <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>Can I get personalized support if I have questions?</h4>
-                <p>Absolutely! J-Guides offers dedicated support with direct access to Josh’s contact information and a contact form on the website. 
-                  Josh is committed to making your college transition as seamless as possible, so feel free to reach out with any questions.</p>
-            </div>
-        </article>
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-              <h4>Is the guidebook only for Indiana University students?</h4>
-              <p>While the guidebook is based on Josh's experiences at Indiana University, we are working on guides for other schools.
-                 Our mission is to help all incoming freshmen navigate the complexities of their first year and take the first step toward a successful college career and beyond.</p>
-          </div>
-      </article>
-      <article class="faq">
-        <div class="faq__icon"><i class="uil uil-plus"></i></div>
-        <div class="question__answer">
-            <h4>Can parents benefit from J-Guides?</h4>
-            <p>Yes, J-Guides includes crucial information for parents, from move-in essentials to university expectations.
-               It also features a dedicated section on important legal documents, waivers, and authorizations for parents of college-bound students.</p>
-        </div>
-    </article>
-    <article class="faq">
-      <div class="faq__icon"><i class="uil uil-plus"></i></div>
-      <div class="question__answer">
-          <h4>How will I receive the J-Guide?</h4>
-          <p>Once an order is placed, you will recieve an order ID to your email address you inputted when you purchased the J-Guide. Using that order ID and 
-            your email address, go to the View Your J-Guide Section and fill out the fields for email address and order ID. From there, you can view your J-Guide.
-            Only a few people at a time can access this J-Guide for security purposes.
-          </p>
-      </div>
-  </article>
-  <article class="faq">
-    <div class="faq__icon"><i class="uil uil-plus"></i></div>
-    <div class="question__answer">
-        <h4>Can I get personalized support if I have questions?</h4>
-        <p>Absolutely! J-Guides offers dedicated support with direct access to Josh’s contact information and a contact form on the website. 
-          Josh is committed to making your college transition as seamless as possible, so feel free to reach out with any questions.</p>
     </div>
-</article>
-<article class="faq">
-  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-  <div class="question__answer">
-      <h4>Can I purchase the guidebook as a gift for someone else?</h4>
-      <p>Absolutely! J-Guides makes a great gift for any incoming freshman. When placing your order, just provide the recipient’s email address.</p>
-  </div>
-</article>
-<article class="faq">
-  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-  <div class="question__answer">
-      <h4>How do I access the videos included with the guidebook?</h4>
-      <p>Within the guidebook, you will find the passcodes to each walkthrough video.</p>
-  </div>
-</article>
-<article class="faq">
-  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-  <div class="question__answer">
-      <h4>Are there any reviews from other people who have used J-Guides?</h4>
-      <p>Yes, we have received positive feedback from students and parents who have found J-Guides incredibly helpful. You can read their testimonials and reviews at the bottom of our website.</p>
-  </div>
-</article>
-<article class="faq">
-  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-  <div class="question__answer">
-      <h4>How can I stay updated with new releases and updates from J-Guides?</h4>
-      <p>To stay updated with the latest news, releases, and updates from J-Guides, follow us on Instagram @j.guides and on Facebook by searching J-Guides under pages. 
-        You can also click the Instagram and Facebook icons at the bottom right corner of the website.</p>
-  </div>
-</article>
-<article class="faq">
-  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-  <div class="question__answer">
-      <h4>Is there a return policy for the guidebook?</h4>
-      <p>Due to the nature of digital products, we do not offer returns. If you encounter any issues, please contact our support team for assistance.</p>
-  </div>
-</article>
-<article class="faq">
-  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-  <div class="question__answer">
-      <h4>Can I request a topic to be covered in future editions?</h4>
-      <p>Yes, we are always looking to improve and expand J-Guides. If there’s a specific topic 
-        you’d like us to cover, let us know, and we will both address it now and potentially include it in a future edition.</p>
-  </div>
-</article>
-<article class="faq">
-  <div class="faq__icon"><i class="uil uil-plus"></i></div>
-  <div class="question__answer">
-      <h4>How can I provide feedback on the guidebook?</h4>
-      <p>Your feedback is important to us. 
-        You can provide feedback through our website’s contact form or directly via email. We value your input and strive to enhance our guidebook based on user suggestions.</p>
-  </div>
-</article>
-              <!-- Repeat FAQ items as needed -->
-          </div>
-      </section>
-      <!--====================== END OF FAQs =====================-->
+  </section>
+  <section class="logo-bar">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="header-social">
+                    <div class="social-imgs">
+                        <a href="#"><img src="assets/images/fb.png" alt=""></a>
+                        <a href="#"><img src="assets/images/insta.png" alt=""></a>
+                        <a href="#"><img src="assets/images/pintrest.png" alt=""></a>
+                        <a href="#"><img src="assets/images/youtube.png" alt=""></a>
+                    </div>
+                    <div class="social-cont">
+                        <p> —  Social media</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="header-logo">
+                    <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="header-cart">
+                    <a href="#"><img src="assets/images/wishlist.png" alt=""></a>
+                    <a href="#"><img src="assets/images/cart.png" alt=""></a>
+                    <a href="#"><img src="assets/images/user.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>-->
+  <section class="navigation">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about-us">About Us</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="guide.html">View Your Guides</a></li>
+                    <li><a href="index.html#faqs">FAQ</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button class="openbtn" onclick="openNav()">☰ </button>
+  </section>
+  
+  
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#about-us">About Us</a>
+    <a href="index.html#products">Products</a>
+    <a href="guide.html">View Your Guides</a>
+    <a href="index.html#faqs">FAQ</a>
+    <a href="index.html#testimonials">Testimonials</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+  
+</header>
 
-      <section id="testimonials" class="container testimonials__container mySwiper hidden">
-          <h2>Students' Testimonials</h2>
-          <div class="swiper-wrapper">
-              <article class="testimonial swiper-slide">
-                  <div class="avatar">
-                      <img src="./images/avatar1.jpg">
-                  </div>
-                  <div class="testimonial__info">
-                      <h5>Juliet</h5>
-                      <small>Mom</small>
-                  </div>
-                  <div class="testimonial__body">
-                      <p>I am absolutely blown away by this guidebook! It’s a resource that I highly recommend all parents give to their kids as a must-read. It’s packed with important info and advice that will not only help my daughter prepare for the upcoming year but will also support her throughout her entire freshman year. I found it extremely helpful as well. There's a lot of information that I think would benefit many parents. This guidebook has been a game changer for us!
-                      </p>
-                  </div>
-              </article>
-              <article class="testimonial swiper-slide">
-                <div class="avatar">
-                    <img src="./images/avatar5.jpg">
+<section class="main-banner" id="banner">
+    <div class="container">
+        <div class="row">
+            <div data-aos="fade-right" data-aos-duration="1500" class="col-md-6">
+                <div class="banner-content">
+                    <h5>NAVIGATE YOUR FRESHMAN</h5>
+                    <h1>Year <span>With</span> <br>Confidence</h1>
+                    <p>Expert Guidence For Incoming Students, all in one place.‘’</p>
+                    <a href="index.html#products" class="theme-btn">Get Your J-Guide</a>
                 </div>
-                <div class="testimonial__info">
-                    <h5>Elise</h5>
-                    <small>Student</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="products" id="products">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="section-heading">
+                <h2>Best <span>Sellers</span></h2>
+            </div>
+        </div>
+        <div class="book-slider">
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="assets/images/product-one.png" alt="">
+                    <h4>J-Guide IUB</h4>
+                    <p>Get your standard J-Guide for IUB</p>
+                    <h5>$9.99</h5>
+                    <a href="https://buy.stripe.com/9AQg025slahW4dG8wy" target="_blank" class="btn btn-primary">
+                        Buy Now
+                    </a>
                 </div>
-                <div class="testimonial__body">
-                    <p>The IU guidebook has been so helpful for me. From understanding campus life to building my schedule to just getting my expectations in line and hearing the perspective of a graduate. I think this guidebook will definitely make my transition to college smoother, and I am super grateful for that.
+            </div>
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="assets/images/product-two.png" alt="">
+                    <h4>Student Q&A Bundle</h4>
+                    <p>153 questions answered</p>
+                    <h5>$6.99</h5>
+                    <a href="https://buy.stripe.com/eVa0140819dS11ueV3" target="_blank" class="btn btn-primary">
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="assets/images/product-three.png" alt="">
+                    <h4>All in One Bundle</h4>
+                    <p>Everything for a discount price</p>
+                    <h5>$16.99</h5>
+                    <a href="https://buy.stripe.com/14kg02cUNeyc8tWbIQ" target="_blank" class="btn btn-primary">
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="assets/images/product-four.png" alt="">
+                    <h4>Student & Parent Q&A Bundle</h4>
+                    <p>255 questions answered</p>
+                    <h5>$12.99</h5>
+                    <a href="https://buy.stripe.com/14k4hk4oh89O11u9AH" target="_blank" class="btn btn-primary">
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-us" id="about-us">
+    <div class="container">
+        <div class="row">
+            <div data-aos="fade-right" data-aos-duration="1500" class="col-md-6">
+                <div class="about-left">
+                    <img src="assets/images/about.png" alt="">
+                </div>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="1500" class="col-md-6">
+                <div class="about-right">
+                    <img src="assets/images/about-logo.png" alt="">
+                    <div class="section-heading">
+                        <h2>About <span>J - Guide</span></h2>
+                    </div>
+                    <p>My name is Josh Aronow, and I am a 2024 graduate of Indiana University's Kelley School of Business. The inspiration for J-Guides stemmed from my own experiences navigating the complexities of freshman year. I often wished for the advice, mentorship, and insights from someone who had already been through the process. I firmly believe that guidance from a relatable graduate can significantly impact a student’s college journey.
                     </p>
+                    <p>Freshman year is often filled with confusion and the overwhelming task of adapting to a new environment. My guidebook aims to alleviate these challenges by providing essential information, resources, and mentorship for both students and parents, all in one comprehensive package.</p>
+                    <a href="index.html#products" class="theme-btn">Buy Your Guide Now</a>
                 </div>
-            </article>
-            <article class="testimonial swiper-slide">
-              <div class="avatar">
-                  <img src="./images/avatar3.jpg">
-              </div>
-              <div class="testimonial__info">
-                  <h5>Elizabeth</h5>
-                  <small>Mom</small>
-              </div>
-              <div class="testimonial__body">
-                  <p>My son has orientation coming up, and this guidebook is the perfect thing for him to have to get his mind in the right place. It provided a great overview for both of us. There are many useful tips that will help me prepare to send him off and get ready for the move-in experience. I also find it heartwarming that a graduating student wants to pass down what they've learned. I think it's amazing and will really help a lot of students.
-
-                  </p>
-              </div>
-          </article>
-          <article class="testimonial swiper-slide">
-            <div class="avatar">
-                <img src="./images/avatar4.jpg">
             </div>
-            <div class="testimonial__info">
-                <h5>Gabe</h5>
-                <small>Student</small>
-            </div>
-            <div class="testimonial__body">
-                <p>Josh has really helped me out, past just his guidebook, I’ve communicated with him a bunch. I know I want to go into real estate and he has been super helpful, explaining certain resources on campus and telling me about the paths his friends took to get into the industry. Having someone to go to with questions will really help out during the year. And the video walk throughs were great to follow along to, such an easy way to learn how to use the tools / strategies.
-
-                </p>
-            </div>
-        </article>
-        <article class="testimonial swiper-slide">
-          <div class="avatar">
-              <img src="./images/avatar2.jpg">
-          </div>
-          <div class="testimonial__info">
-              <h5>Brody</h5>
-              <small>Student</small>
-          </div>
-          <div class="testimonial__body">
-              <p>The guidebook was very helpful. I thought the list of the necessities for college was one of the best parts  because I didn’t really know what to pack. Overall, this is definitely the resource I needed.
-
-              </p>
-          </div>
-      </article>
-              <!-- Repeat testimonials as needed -->
-          </div>
-          <div class="swiper-pagination"></div>
-      </section>
-      <!--====================== END OF TESTIMONIALS =====================-->
-
-      <footer>
-        <div class="container footer__container">
-          <div class="footer__1">
-            <a href="index.html#" class="footer__logo"><img src="./images/jguidesnewlogotransparent-09.png" alt="J-GUIDES Logo" class="footer__logo-image"></a>
-            <p></p>
-          </div>
-          <div class="footer__2">
-            <h4>Quick Links</h4>
-            <ul class="permalinks">
-              <li><a href="index.html#">Home</a></li>
-              <li><a href="index.html#about">About</a></li>
-              <li><a href="products.html">Products</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer__3">
-            <h4>Privacy</h4>
-            <ul class="privacy">
-              <li><a href="privacy_refunds.html">Privacy Policy</a></li>
-              <li><a href="privacy_refunds.html">Refund Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer__4">
-            <h4>Contact Us</h4>
-            <div>
-              <p>+1 734 730 1602</p>
-              <p>josh@jguides.com</p>
-            </div>
-            <ul class="footer__socials">
-              <li><a href="https://www.facebook.com/profile.php?id=61561265210229" target="_blank"><i class="uil uil-facebook-f"></i></a></li>
-              <li><a href="https://www.instagram.com/j.guides/" target="_blank"><i class="uil uil-instagram-alt"></i></a></li>
-            </ul>
-          </div>
         </div>
-        <div class="footer__copyright">
-            <small>Copyright &copy; 2024</small>
+    </div>
+</section>
+
+<section class="resources" id="resources">
+    <div class="container">
+        <div data-aos="fade-down" data-aos-duration="1500" class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="res-one">
+                    <div class="res-img">
+                        <img src="assets/images/res-one.png" alt="">
+                    </div>
+                    <h4>Resourceful</h4>
+                    <p>Contains insights from my 4 years at Indiana and a curated compilation of essential resources</p>
+                    <a href="#" class="read-arrow"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="res-one">
+                    <div class="res-img">
+                        <img src="assets/images/res-two.png" alt="">
+                    </div>
+                    <h4>Video Walkthroughs</h4>
+                    <p>Video walkthroughs on planning your classes, building your schedule, and enrolling</p>
+                    <a href="#" class="read-arrow"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="res-one">
+                    <div class="res-img">
+                        <img src="assets/images/res-three.png" alt="">
+                    </div>
+                    <h4>A Head Start</h4>
+                    <p>Uncover key tools and strategies often overlooked by advisors</p>
+                    <a href="#" class="read-arrow"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="res-one">
+                    <div class="res-img">
+                        <img src="assets/images/res-four.png" alt="">
+                    </div>
+                    <h4>Excel Templates</h4>
+                    <p>Free Excel template to plan, organize, visualize, and maximize your class schedule</p>
+                    <a href="#" class="read-arrow"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!--<div class="col-md-12">
+                <div class="view-more-btn">
+                    <a href="#" class="theme-btn">View All</a>
+                </div>
+            </div>-->
         </div>
-      </footer>
+    </div>
+</section>
 
-      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-      <script src="./main.js"></script>
-      
-      <script>
-        // Intersection Observer for animating elements on scroll
-        function callback(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }
+<!--<section class="head-start" id="head-start">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div data-aos="fade-left" data-aos-duration="1500" class="col-md-6">
+                <div class="head-start-cont">
+                    <h2>Get the <span> head </span> start your <span> deserve </span></h2>
+                    <a href="#" class="theme-btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
 
-        let observer = new IntersectionObserver(callback, { threshold: 0.1 });
+<section class="tesimonials" id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div data-aos="fade-right" data-aos-duration="1500" class="col-md-7">
+                <div class="testileft">
+                    <div class="test-top">
+                        <img src="assets/images/about-logo.png" alt="">
+                        <h2>That’s what <span>our students</span> says <span>About</span> us</h2>
+                    </div>
+                    <div class="tesi-slider">
+                        <div class="testi-main">
+                            <p>I am absolutely blown away by this guidebook! It’s a resource that I highly recommend all parents give to their kids as a must-read. It’s packed with important info and advice that will not only help my daughter prepare for the upcoming year but will also support her throughout her entire freshman year. I found it extremely helpful as well. There's a lot of information that I think would benefit many parents. This guidebook has been a game changer for us!</p>
+                            <div class="test-author">
+                                <!--<img src="assets/images/test-author.png" alt="">-->
+                                <div class="test-name">
+                                    <h5>Juliet</h5>
+                                    <p>Mom</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-main">
+                            <p>The IU guidebook has been so helpful for me. From understanding campus life to building my schedule to just getting my expectations in line and hearing the perspective of a graduate. I think this guidebook will definitely make my transition to college smoother, and I am super grateful for that.
+                                <div class="test-author">
+                                <!--<img src="assets/images/test-author.png" alt="">-->
+                                <div class="test-name">
+                                    <h5>Elise</h5>
+                                    <p>Student</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-main">
+                            <p>My son has orientation coming up, and this guidebook is the perfect thing for him to have to get his mind in the right place. It provided a great overview for both of us. There are many useful tips that will help me prepare to send him off and get ready for the move-in experience. I also find it heartwarming that a graduating student wants to pass down what they've learned. I think it's amazing and will really help a lot of students.
+                                <div class="test-author">
+                                <!--<img src="assets/images/test-author.png" alt="">-->
+                                <div class="test-name">
+                                    <h5>Elizabeth</h5>
+                                    <p>Mom</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="1500" class="col-md-5">
+                <div class="testi-right">
+                    <img src="assets/images/testi-left.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        document.querySelectorAll('.hidden').forEach(element => {
-            observer.observe(element);
-        });
+<section class="faqs" id="faqs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="faq-left">
+                    <img src="assets/images/faq-left.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="faqs-right">
+                    <div class="faqs-top">
+                        <h2>FAQ's</h2>
+                        <p>Questions? Look below to see our most common questions and answers!</p>
+                    </div>
+                    <div class="faq-main">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What does the guidebook include?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>The guidebook covers a wide range of topics, including move-in tips, campus life, involvement opportunities, scheduling advice, legal documents, and recommendations for parents. 
+                                            It also offers useful resources, valuable tips, practical advice, video walkthroughs, Excel templates, and a digital planner.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How can J-Guides benefit me as a freshman?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>J-Guides provides insider tips and strategies often overlooked by advisors, based on Josh's four years at Indiana University. 
+                                            It aims to help you make informed decisions, avoid common pitfalls, and ensure a smooth transition into college life.</p>                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Are there any resources included with the guidebook?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Yes, J-Guides includes video walkthroughs for class planning, schedule building, and utilizing overlooked resources. 
+                                            It also features a customizable schedule builder and a digital planner with prioritization tools via Excel.</p>                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Can I get personalized support if I have questions?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Absolutely! J-Guides offers dedicated support with direct access to Josh’s contact information and a contact form on the website. 
+                                                Josh is committed to making your college transition as seamless as possible, so feel free to reach out with any questions.</p>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                            How will I receive the J-Guide?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Once an order is placed, you will recieve an order ID to your email address you inputted when you purchased the J-Guide. Using that order ID and 
+                                                your email address, go to the View Your J-Guide Section and fill out the fields for email address and order ID. From there, you can view your J-Guide.
+                                                Only a few people at a time can access this J-Guide for security purposes.</p>                                        
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                            How do I access the videos included with the guidebook?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Within the guidebook, you will find the passcodes to each walkthrough video.</p>                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
-        // Swiper for testimonials section
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                600: {
-                    slidesPerView: 2
-                }
-            }
-        });
+<footer>
+    <section class="footer-main">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-3">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <img src="assets/images/footer-logo.png" alt="">
+                        </div>
+                        <div class="footer-content">
+                            <p>Your one stop for a successful freshman year</p>
+                        </div>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/profile.php?id=61561265210229"><img src="assets/images/fb.png" alt=""></a>
+                            <a href="https://www.instagram.com/j.guides/"><img src="assets/images/insta.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="quick-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#about-us">About Us</a></li>
+                            <li><a href="index.html#products">Products</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="quick-links">
+                        <h3>Questions?</h3>
+                        <ul>
+                            <li><a href="index.html#faqs">FAQ</a></li>
+                            <li><a href="index.html#testimonials">Testimonials</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="col-md-3">
+                    <div class="other-links">
+                        <h3>Other Links</h3>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>-->
+                <div class="col-md-3">
+                    <div class="footer-right">
+                        <h3>CONTACT US</h3>
+                        <p>Email : <a href="mailto:josh@jguides.com"></a>josh@jguides.com</a></p>
+                        <p>Phone : <a href="tel:+17347301602">+1 734 730 1602</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="copright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copright-text">
+                        <p>Copyright © 2024 JGUIDES - All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
 
-      document.getElementById('buy-guide').addEventListener('click', function() {
-        fbq('track', 'InitiateCheckout');
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/fancybox.umd.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/slick.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/toastify-js.js"></script>
+<script src="assets/js/boxicons.js"></script>
+<script src="assets/js/sweetalert.min.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js" integrity="sha512-1JkMy1LR9bTo3psH+H4SV5bO2dFylgOy+UJhMus1zF4VEFuZVu5lsi4I6iIndE4N9p01z1554ZDcvMSjMaqCBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    AOS.init();
+</script>
+
+<script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // Your custom options for a specific gallery
     });
-      </script>
+</script>
+
 </body>
+
 </html>
