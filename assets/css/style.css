@@ -8,8 +8,8 @@
 
 :root {
   /*** theme colors ***/
-  --blue: #B4DCFF;
-  --dblue: #004CB4;
+  --blue: #FFB4B4 ;
+  --dblue: #B40000;
 }
 
 * {
@@ -120,7 +120,7 @@ section.navigation {
 }
 
 section.footer-main {
-  background: #fff;
+  background: var(--blue);
   padding: 70px 0;
 }
 
@@ -140,6 +140,14 @@ section.footer-main {
   align-items: center;
   gap: 0 20px;
 }
+
+.footer-social img {
+  width: 40%; /* Adjust as needed */
+  height: auto; /* Keeps aspect ratio */
+  max-width: 100%;
+  padding-left: 20%;
+}
+
 
 .quick-links,
 .other-links {
@@ -188,10 +196,17 @@ section.copright {
 }
 
 section.main-banner {
-  background: url(../images/main-banner.png);
+  background: url(../images/test-index-image.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 147px 0;
+}
+
+.faqs video {
+  max-width: 100%; /* Ensures it doesn't exceed the column width */
+  width: 100%; /* Makes it responsive */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 10px; /* Optional: Adds rounded corners */
 }
 
 .banner-content h5 {
@@ -295,6 +310,9 @@ section.about-us {
 
 .about-right img {
   margin-bottom: 30px;
+  max-width: 100%;  /* Ensures it doesn't overflow */
+  height: auto;  /* Maintains aspect ratio */
+  width: 100%; /* Adjust to your desired size */
 }
 
 .about-right p {
@@ -406,6 +424,9 @@ section.tesimonials {
 
 .test-top img {
   margin-bottom: 30px;
+  max-width: 100%;  /* Ensures it doesn't overflow */
+  height: auto;  /* Maintains aspect ratio */
+  width: 100%; /* Adjust to your desired size */
 }
 
 .test-top h2 {
@@ -747,7 +768,7 @@ input:focus {
 }
 
 .btn-primary {
-  background: lightblue;
+  background: lightpink;
   color: black;
   font-size: large;
   font-weight: bolder;
@@ -760,7 +781,7 @@ input:focus {
 }
 
 .btn-primary:hover {
-  background: lightseagreen;
+  background: lightcoral;
 }
 
 @media (max-width: 600px) {
@@ -819,7 +840,7 @@ input:focus {
 
 .products .book-slider .slick-prev:hover,
 .products .book-slider .slick-next:hover{
-    background: #157de3;
+    background: var(--blue);
     border-radius: 30px;
     display: block;
     width: 60px;
@@ -873,7 +894,7 @@ input:focus {
 .tesimonials .slick-next:hover{
     width: 60px;
     height: 60px;
-    background: #157de3;
+    background: var(--blue);
     border-radius: 30px;
     display: block;
      color: #fff;
@@ -929,8 +950,8 @@ input:focus {
 }
 
 .pricing a {
-    background-color: rgb(207 249 253);
-    padding: 2px 15px 2px;
+  background-color: rgb(253, 207, 207);
+  padding: 2px 15px 2px;
     font-size: 13px;
     font-weight: 500;
     margin: 0 0px 11px;
@@ -1156,7 +1177,7 @@ button.accordion-button.collapsed svg {
 
 .choice-cart {
     text-align: center;
-    background: rgb(238 252 255);
+    background: var(--blue);
     padding: 10px 0 20px;
 }
 
@@ -1229,12 +1250,14 @@ h2.accordion-header svg {
 }
 
 .you-may-like {
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 40px;
   text-align: center;
+  background-color: var(--blue);
 }
 
 .choices .row {
@@ -1254,9 +1277,8 @@ h2.accordion-header svg {
 
 @media only screen and (max-width: 1400px){
     section.main-banner {
-    background: url(../images/main-banner.png);
-    background-position-x: center;
-    background-position-y: center;
+      background: url(../images/test-index-image.png) no-repeat center center;
+      background-size: cover;
 }
 
 }
@@ -1660,7 +1682,7 @@ section {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #51708b;
+  background-color: lightcoral;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -1690,15 +1712,15 @@ section {
 .openbtn {
     font-size: 28px;
     cursor: pointer;
-    background-color: #000;
-    color: #b4dcff;
+    background-color: var(--blue);
+    color: var(--dblue);
     padding: 1px 11px;
     border: none;
     display: none;
 }
 
 .openbtn:hover {
-  background-color: #444;
+  background-color: var(--dblue);
 }
 
 #main {
