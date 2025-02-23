@@ -62,6 +62,50 @@ section.top-bar p {
   text-align: center;
 }
 
+/* Default: logo is visible (for phones) */
+.navigation .header-logo {
+  display: block;
+}
+
+/* Hide the logo on devices 768px and wider (tablets and laptops) */
+@media (min-width: 768px) {
+  .navigation .header-logo {
+    display: none;
+  }
+}
+
+/* Ensure the navigation section is the reference for positioning */
+.navigation {
+  position: relative;
+  padding: 10px 0; /* Adjust vertical padding as needed */
+}
+
+/* Remove any extra margin from the logo container */
+.header-logo {
+  margin: 0 auto;
+}
+
+/* Style the logo image if needed */
+.header-logo img {
+  max-height: 80px;  /* Adjust to your header height */
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Position the open (hamburger) button */
+.openbtn {
+  position: absolute;
+  left: 15px; /* Adjust left offset as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px; /* Or whatever size suits your design */
+  cursor: pointer;
+}
+
+
 .social-imgs {
   display: flex;
   justify-content: start;
