@@ -1321,8 +1321,24 @@ h2.accordion-header svg {
 
 @media only screen and (max-width: 1400px){
     section.main-banner {
-      background: url(../images/Artboard\ 2.png) no-repeat center center;
+      background: url(../images/newextendedsitepic.png) no-repeat center center;
       background-size: cover;
+      padding: 200px 0; /* Increases the height of the section */
+
+}
+.banner-content h1,
+.banner-content p {
+  display: none; /* Hide text */
+}
+
+.banner-content {
+  text-align: center; /* Center the button horizontally */
+}
+
+.banner-content a.theme-btn {
+  display: inline-block;
+  margin: 0 auto; /* Center the button */
+  margin-top: 75%; /* Pushes the button further down */
 }
 
 }
