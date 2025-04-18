@@ -163,7 +163,7 @@
         <button id="goLeftButton" class="btn-primary" onclick="goLeft()">Go Left</button>
         <button id="goRightButton" class="btn-primary" onclick="goRight()">Go Right</button>
     </div>
-    <p style="font-style: italic; text-align: center; margin-top: 5px;">For optimal experience, use a computer.</p>
+    <p style="font-style: italic; text-align: center; margin-top: 5px;">For optimal experience, use a computer. You can also click on the right half or left half to go to the next page or previous page</p>
 </section>
 
 
@@ -329,6 +329,18 @@
     document.addEventListener('touchend', function (e) {
         touchEndX = e.changedTouches[0].screenX;
         handleGesture();
+    });
+
+    pdfContainer.addEventListener('click', function(e) {
+    // get the container’s dimensions & click pos
+    const rect = pdfContainer.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    
+    if (clickX > rect.width / 2) {
+        goRight();   // clicked right half
+    } else {
+        goLeft();    // clicked left half
+    }
     });
 
     const links = {
